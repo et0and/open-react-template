@@ -3,7 +3,56 @@ export const metadata = {
   description: 'Sign back into your Arvault account',
 }
 
-import Link from 'next/link'
+import { useState } from "react";
+import Link from "next/link";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const firebaseConfig = {
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
+};
+
+import { initializeApp } from "firebase/app";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const [loading, setLoading] = useState(false);
+
+const signInWithGoogle = async () => {
+  setLoading(true);
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error("Error signing in with Google: ", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+const signInWithEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
+  const email = e.currentTarget.elements.namedItem("email") as HTMLInputElement;
+  const password = e.currentTarget.elements.namedItem("password") as HTMLInputElement;
+
+  try {
+    await signInWithEmailAndPassword(auth, email.value, password.value);
+  } catch (error) {
+    console.error("Error signing in with email: ", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
 export default function SignIn() {
   return (
@@ -21,7 +70,7 @@ export default function SignIn() {
             <form>
               <div className="flex flex-wrap -mx-3">
                 <div className="w-full px-3">
-                  <button className="btn px-0 text-white bg-red-600 hover:bg-red-700 w-full relative flex items-center">
+                  <button onClick={signInWithGoogle} className="btn px-0 text-white bg-red-600 hover:bg-red-700 w-full relative flex items-center">
                     <svg className="w-4 h-4 fill-current text-white opacity-75 shrink-0 mx-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" />
                     </svg>
@@ -36,7 +85,7 @@ export default function SignIn() {
               <div className="text-gray-400">Or, sign in with your email</div>
               <div className="border-t border-gray-700 border-dotted grow ml-3" aria-hidden="true"></div>
             </div>
-            <form>
+            <form onSubmit={signInWithEmail}>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
                   <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">Email</label>
@@ -62,7 +111,7 @@ export default function SignIn() {
               </div>
               <div className="flex flex-wrap -mx-3 mt-6">
                 <div className="w-full px-3">
-                  <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">Sign in</button>
+                  <button type="submit" disabled={loading} className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">Sign in</button>
                 </div>
               </div>
             </form>
