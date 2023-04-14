@@ -103,7 +103,7 @@ export default function Footer() {
             </ul>
 
             {/* Copyrights note */}
-            <div className="text-gray-800 text-sm mr-4">&copy; arvault.io. All rights reserved.</div>
+            <div className="text-gray-800 text-sm mr-4">&copy; arvault.co. All rights reserved.</div>
 
           </div>
 
