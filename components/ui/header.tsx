@@ -21,7 +21,7 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link href="https://arvault.vercel.app" className="btn-sm rounded-md text-white bg-teal-500 hover:bg-teal-800 ml-3">
+                <Link href="https://auth-arvault.vercel.app/" className="btn-sm rounded-md text-white bg-teal-500 hover:bg-teal-800 ml-3">
                   Get started
                 </Link>
               </li>
