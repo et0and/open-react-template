@@ -21,16 +21,8 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link
-                  href="/signin"
-                  className="font-medium text-teal-500 hover:text-teal-800 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                >
-                  Sign in
-                </Link>
-              </li>
-              <li>
-                <Link href="/signup" className="btn-sm rounded-md text-white bg-teal-500 hover:bg-teal-800 ml-3">
-                  Sign up
+                <Link href="https://arvault.vercel.app" className="btn-sm rounded-md text-white bg-teal-500 hover:bg-teal-800 ml-3">
+                  Get started
                 </Link>
               </li>
             </ul>
