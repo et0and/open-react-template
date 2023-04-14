@@ -35,7 +35,7 @@ export default function Hero() {
             <p className="text-xl text-gray-700 mb-8" data-aos="fade-up" data-aos-delay="200">Instant 3D experiences for anyone.</p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
-                <a className="btn text-white bg-teal-600 hover:bg-teal-800 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Start free trial</a>
+                <a className="btn text-white bg-teal-500 hover:bg-teal-800 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Start free trial</a>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
                 <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">Learn more</a>
@@ -61,7 +61,7 @@ export default function Hero() {
                     </linearGradient>
                   </defs>
                   <circle fill="url(#a)" cx="44" cy="44" r="44" />
-                  <path className="fill-current text-purple-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
+                  <path className="fill-current text-teal-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
                 </svg>
               </a>
             </div>
