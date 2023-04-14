@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Sign Up - Open PRO',
-  description: 'Page description',
+  title: 'Sign Up - Arvault',
+  description: 'Create an account to use Arvault',
 }
 
 import Link from 'next/link'
@@ -13,7 +13,7 @@ export default function SignUp() {
 
           {/* Page header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h1 className="h1">Welcome. We exist to make entrepreneurship easier.</h1>
+            <h1 className="h1">Create an account</h1>
           </div>
 
           {/* Form */}
