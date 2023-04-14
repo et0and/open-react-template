@@ -29,7 +29,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/signup" className="btn-sm text-white bg-teal-500 hover:bg-teal-800 ml-3">
+                <Link href="/signup" className="btn-sm rounded-md text-white bg-teal-500 hover:bg-teal-800 ml-3">
                   Sign up
                 </Link>
               </li>
